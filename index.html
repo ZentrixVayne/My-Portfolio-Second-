@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code With Arshman Anil — Portfolio</title>
+  <meta name="description" content="Portfolio of Arshman Anil — Frontend Developer, Programming Language Creator, Cyber Security Student, and Future Computer Scientist." />
+
+  <!-- Google Fonts: Inter + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- PREMIUM CDNs: Smooth Scroll (Lenis) & 3D Tilt -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ============================= -->
+  <!-- NAVIGATION BAR (Sticky)       -->
+  <!-- ============================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand">
+        <span class="brand-dot"></span>
+        Code With <span class="brand-accent">Arshman Anil</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================= -->
+  <!-- HERO SECTION                  -->
+  <!-- Image LEFT, Text RIGHT        -->
+  <!-- ============================= -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+
+      <!-- Profile Image (LEFT) -->
+      <div class="hero-image reveal">
+        <div class="profile-ring">
+          <div class="profile-inner">
+            <!-- Profile Image -->
+            <img src="https://z-cdn-media.chatglm.cn/files/765bd2b5-3069-4cd9-ae0e-680cc86d3c85.png?auth_key=1881977853-efffa734623d4592be1b7f47206f009b-0-d08a2825b7ac378cb21984da827899ea" alt="Arshman Anil" />
+          </div>
+          <span class="floating-badge badge-1">Frontend Dev</span>
+          <span class="floating-badge badge-2">Cyber Security</span>
+        </div>
+      </div>
+
+      <!-- Text Content (RIGHT) -->
+      <div class="hero-content reveal">
+        <p class="hero-greeting">👋 Hello, I'm</p>
+        <h1 class="hero-name">Arshman Anil</h1>
+        <h2 class="hero-role">
+          I'm a <span class="role-text" id="roleText">Frontend Developer</span><span class="cursor">|</span>
+        </h2>
+        <p class="hero-intro">
+          Frontend Developer, Programming Language Creator, and Cyber Security Student
+          on a journey to become a future Computer Scientist — building innovative
+          projects that help others learn and grow.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary magnetic">View Projects</a>
+          <a href="#contact" class="btn btn-secondary magnetic">Contact Me</a>
+        </div>
+
+        <div class="hero-stats">
+          <div><strong>3+</strong><span>Projects</span></div>
+          <div><strong>8+</strong><span>Skills</span></div>
+          <div><strong>∞</strong><span>Curiosity</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- ABOUT SECTION                 -->
+  <!-- ============================= -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">01 — About</span>
+        <h2 class="section-title">Get To Know Me</h2>
+        <p class="section-sub">A quick look at who I am and what I do.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I am <strong>Arshman Anil</strong>, a student at
+            <strong>SMS Aga Khan School Karachi</strong> currently studying in
+            Higher Secondary School. I was born in <strong>Karachi, Pakistan</strong>.
+            I am passionate about technology, software development, cybersecurity,
+            and programming language design.
+          </p>
+          <p>
+            I am currently working under <strong>cybersecurity studies</strong> while
+            continuously expanding my knowledge in computer science and software
+            engineering.
+          </p>
+          <p>
+            My goal is to master Computer Science, Cyber Security, Software Development,
+            Programming Language Design, and modern technologies while creating
+            innovative projects that help others learn and grow.
+          </p>
+        </div>
+
+        <div class="info-cards">
+          <div class="info-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
+            <div class="info-icon">🎓</div>
+            <h3>Education</h3>
+            <p>SMS Aga Khan School Karachi — Higher Secondary Student</p>
+          </div>
+          <div class="info-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
+            <div class="info-icon">📍</div>
+            <h3>Origin</h3>
+            <p>Born in Karachi, Pakistan</p>
+          </div>
+          <div class="info-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
+            <div class="info-icon">🛡️</div>
+            <h3>Focus</h3>
+            <p>Cyber Security Studies & Research</p>
+          </div>
+          <div class="info-card reveal" data-tilt data-tilt-max="10" data-tilt-speed="400">
+            <div class="info-icon">💻</div>
+            <h3>Passion</h3>
+            <p>Computer Science Enthusiast</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- SKILLS SECTION                -->
+  <!-- ============================= -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">02 — Skills</span>
+        <h2 class="section-title">What I Work With</h2>
+        <p class="section-sub">Technologies and fields I'm skilled in.</p>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Skills rendered dynamically from script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- STATISTICS SECTION            -->
+  <!-- ============================= -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="3">0</h3>
+          <p class="stat-label">Projects Completed</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="8">0</h3>
+          <p class="stat-label">Technologies Learned</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="1200">0</h3>
+          <p class="stat-label">Hours of Coding</p>
+        </div>
+        <div class="stat-card reveal">
+          <h3 class="stat-number" data-target="5">0</h3>
+          <p class="stat-label">Future Goals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- PROJECTS SECTION              -->
+  <!-- ============================= -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">03 — Projects</span>
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-sub">A collection of things I've built and am proud of.</p>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project cards rendered dynamically from script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- CONTACT SECTION               -->
+  <!-- ============================= -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag">04 — Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-sub">Feel free to reach out through any platform below.</p>
+      </div>
+
+      <div class="contact-grid">
+        <a href="https://www.instagram.com/code_with_arshman_anil/" target="_blank" rel="noopener" class="contact-card reveal" data-tilt data-tilt-max="8" data-tilt-glare data-tilt-max-glare="0.2">
+          <div class="contact-icon instagram-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+          <h3>Instagram</h3>
+          <p>@code_with_arshman_anil</p>
+          <span class="visit-btn magnetic">Visit Profile →</span>
+        </a>
+
+        <a href="https://github.com/ZentrixVayne" target="_blank" rel="noopener" class="contact-card reveal" data-tilt data-tilt-max="8" data-tilt-glare data-tilt-max-glare="0.2">
+          <div class="contact-icon github-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .315.21.685.825.57C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5z"/>
+            </svg>
+          </div>
+          <h3>GitHub</h3>
+          <p>@ZentrixVayne</p>
+          <span class="visit-btn magnetic">Visit Profile →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- FOOTER                        -->
+  <!-- ============================= -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p class="footer-text">
+        Built with <span class="heart">❤️</span> by
+        <strong>Code With Arshman Anil</strong>
+      </p>
+      <p class="footer-copy">© <span id="year"></span> All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
