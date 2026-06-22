@@ -10,10 +10,18 @@ const projects = [
     title: "PyCJ Programming Language",
     description: "A custom programming language built in JavaScript with its own lexer, parser, and interpreter. Designed to make learning programming concepts easier and more intuitive.",
     github: "https://github.com/ZentrixVayne/PyCJ-Compiler",
-    download: "https://pycjcompiler.netlify.app/",
+    download: "https://pycjcompiler.vercel.app/",
     downloadText: "Visit Compiler",
-    tag: "Language"
-  }
+    tag: "Langauge"
+  },
+  {
+    title: "PyCJ Documentation Website",
+    description: "PyCJ is a beginner-friendly programming language built in JavaScript with its own compiler and custom syntax. It transforms PyCJ code into JavaScript behind the scenes, making programming easier to learn while remaining powerful and interactive.",
+    github: "https://github.com/ZentrixVayne/PyCj-Documentation",
+    download: "https://pycjdocumentation.vercel.app/",
+    downloadText: "Visit Documentation",
+    tag: "Documentation"
+  }    
 ];
 
 const skills = [
@@ -51,14 +59,6 @@ const testimonials = [
   { text: "A brilliant mind with an incredible work ethic. He is destined to make huge waves in tech.", name: "Zain M.", role: "Ethical Hacker", avatar: "ZM" }
 ];
 
-const aiData = [
-  { q: "Who is Arshman Anil?", a: "I'm Arshman Anil, a Frontend Developer, Cyber Security Student, and the creator of the PyCJ programming language! I'm currently studying at SMS Aga Khan Higher Secondary School and I'm on a journey to become a future Computer Scientist." },
-  { q: "What is the PyCJ Language?", a: "PyCJ is a custom programming language I built in JavaScript! It features its own lexer, parser, and interpreter. I designed it to make learning programming concepts easier. You can try it out here: <a href='https://pycjcompiler.netlify.app' target='_blank'>pycjcompiler.netlify.app</a>" },
-  { q: "What Cyber Security tools do you use?", a: "I actively work with Kali Linux, Wireshark, and Burp Suite for my ethical hacking and network security studies. I'm passionate about understanding how systems work and how to secure them." },
-  { q: "What are you currently learning?", a: "Right now, I'm diving deep into Advanced Ethical Hacking and expanding my knowledge in Programming Language Design. The learning never stops! 🚀" },
-  { q: "How can I contact you?", a: "You can reach out to me via Email at chagani.arshman12@gmail.com, or connect with me on Discord (venom_dray) and Instagram (@code_with_arshman_anil). Let's build something great!" }
-];
-
 /* -----------------------------------------------------
    2) RENDER FUNCTIONS
    ----------------------------------------------------- */
@@ -76,7 +76,9 @@ function renderProjects() {
       </div>
     </article>
   `).join('');
-  VanillaTilt.init(document.querySelectorAll(".project-card"));
+  if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll(".project-card"));
+  }
 }
 
 function renderSkills() {
@@ -147,92 +149,14 @@ function renderTestimonials() {
 }
 
 /* -----------------------------------------------------
-   3) AI CHAT WIDGET LOGIC
-   ----------------------------------------------------- */
-function setupAIWidget() {
-  const trigger = document.getElementById('aiTrigger');
-  const chatWindow = document.getElementById('aiChatWindow');
-  const closeBtn = document.getElementById('aiClose');
-  const body = document.getElementById('aiBody');
-  const qContainer = document.getElementById('aiQuestions');
-
-  // Inject questions
-  qContainer.innerHTML = aiData.map((item, index) => `<button class="ai-question-btn" data-index="${index}">${item.q}</button>`).join('');
-
-  trigger.addEventListener('click', () => {
-    trigger.classList.add('hidden');
-    chatWindow.classList.add('open');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    chatWindow.classList.remove('open');
-    setTimeout(() => trigger.classList.remove('hidden'), 300);
-  });
-
-  qContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains('ai-question-btn')) {
-      const index = e.target.getAttribute('data-index');
-      const qText = aiData[index].q;
-      const aText = aiData[index].a;
-      
-      // Hide the clicked question
-      e.target.classList.add('asked');
-
-      // Add user message
-      const userMsg = document.createElement('div');
-      userMsg.className = 'ai-message user';
-      userMsg.textContent = qText;
-      body.appendChild(userMsg);
-
-      // Add typing indicator
-      const typing = document.createElement('div');
-      typing.className = 'ai-message bot typing-dots';
-      typing.innerHTML = '<span>.</span><span>.</span><span>.</span>';
-      body.appendChild(typing);
-      body.scrollTop = body.scrollHeight;
-
-      // Typing effect for answer
-      setTimeout(() => {
-        body.removeChild(typing);
-        const botMsg = document.createElement('div');
-        botMsg.className = 'ai-message bot';
-        botMsg.innerHTML = '';
-        body.appendChild(botMsg);
-        
-        let i = 0;
-        const speed = 15; // typing speed
-        function typeWriter() {
-          if (i < aText.length) {
-            if (aText.charAt(i) === '<') {
-              const endIndex = aText.indexOf('>', i);
-              if (endIndex !== -1) {
-                botMsg.innerHTML += aText.substring(i, endIndex + 1);
-                i = endIndex + 1;
-              } else {
-                botMsg.innerHTML += aText.charAt(i);
-                i++;
-              }
-            } else {
-              botMsg.innerHTML += aText.charAt(i);
-              i++;
-            }
-            body.scrollTop = body.scrollHeight;
-            setTimeout(typeWriter, speed);
-          }
-        }
-        typeWriter();
-      }, 800);
-    }
-  });
-}
-
-/* -----------------------------------------------------
-   4) PRELOADER & BLUR EFFECT
+   3) PRELOADER & BLUR EFFECT
    ----------------------------------------------------- */
 function setupPreloader() {
   const output = document.getElementById('term-output');
   const preloader = document.getElementById('preloader');
   const body = document.body;
+  
+  if (!output || !preloader) return;
   
   const lines = [
     { text: '> Initializing Arshman_OS...', delay: 200 },
@@ -252,7 +176,7 @@ function setupPreloader() {
 }
 
 /* -----------------------------------------------------
-   5) ANIMATED ROLE TEXT
+   4) ANIMATED ROLE TEXT
    ----------------------------------------------------- */
 const roles = ["Frontend Developer", "Programming Language Creator", "Cyber Security Student", "Future Computer Scientist"];
 let roleIndex = 0, charIndex = 0, isDeleting = false;
@@ -269,7 +193,7 @@ function typeRole() {
 }
 
 /* -----------------------------------------------------
-   6) UI INTERACTIONS
+   5) UI INTERACTIONS
    ----------------------------------------------------- */
 function setupMobileMenu() {
   const hamburger = document.getElementById('hamburger');
@@ -285,6 +209,8 @@ function setupNavbar() {
   const links = document.querySelectorAll('.nav-link');
   const backToTop = document.getElementById('backToTop');
 
+  if (!navbar || !backToTop) return;
+
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 30);
     backToTop.classList.toggle('show', window.scrollY > 500);
@@ -296,36 +222,39 @@ function setupNavbar() {
 }
 
 /* -----------------------------------------------------
-   7) THEME & MUSIC TOGGLES
+   6) THEME & MUSIC TOGGLES
    ----------------------------------------------------- */
 function setupToggles() {
   const themeBtn = document.getElementById('themeToggle');
+  if (!themeBtn) return;
   const html = document.documentElement;
   const icon = themeBtn.querySelector('i');
   const savedTheme = localStorage.getItem('theme') || 'dark';
   html.setAttribute('data-theme', savedTheme);
-  icon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+  if (icon) icon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
 
   themeBtn.addEventListener('click', () => {
     const current = html.getAttribute('data-theme');
     const next = current === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    icon.className = next === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    if (icon) icon.className = next === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
     if(typeof particlesJS !== 'undefined') resetParticles(next);
   });
 
   const musicBtn = document.getElementById('musicToggle');
   const audio = document.getElementById('bgMusic');
-  audio.volume = 0.03; // 3% luxury volume
-  musicBtn.addEventListener('click', () => {
-    if (audio.paused) { audio.play(); musicBtn.classList.add('active-music'); }
-    else { audio.pause(); musicBtn.classList.remove('active-music'); }
-  });
+  if (musicBtn && audio) {
+    audio.volume = 0.03; // 3% volume
+    musicBtn.addEventListener('click', () => {
+      if (audio.paused) { audio.play(); musicBtn.classList.add('active-music'); }
+      else { audio.pause(); musicBtn.classList.remove('active-music'); }
+    });
+  }
 }
 
 /* -----------------------------------------------------
-   8) SCROLL REVEAL & COUNTERS
+   7) SCROLL REVEAL & COUNTERS
    ----------------------------------------------------- */
 function setupScrollReveal() {
   const observer = new IntersectionObserver((entries) => {
@@ -351,9 +280,8 @@ function setupCounters() {
 }
 
 /* -----------------------------------------------------
-   9) PREMIUM EFFECTS (Cursor, Smooth Scroll, Particles)
+   8) PREMIUM EFFECTS (Cursor, Smooth Scroll, Particles)
    ----------------------------------------------------- */
-// Global reference to Lenis so we can stop/start it
 let lenis; 
 
 function setupCustomCursor() {
@@ -377,13 +305,6 @@ function setupSmoothScroll() {
   if (typeof Lenis === 'undefined') return;
   lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothWheel: true });
   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); } requestAnimationFrame(raf);
-
-  // CRITICAL FIX: Stop Lenis from scrolling main page when hovering AI Chat
-  const aiChatWindow = document.getElementById('aiChatWindow');
-  if (aiChatWindow && lenis) {
-    aiChatWindow.addEventListener('mouseenter', () => lenis.stop());
-    aiChatWindow.addEventListener('mouseleave', () => lenis.start());
-  }
 }
 
 function setupParticles() {
@@ -400,7 +321,7 @@ function resetParticles(theme) {
 }
 
 /* -----------------------------------------------------
-   10) INIT
+   9) INIT
    ----------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   setupPreloader();
@@ -417,9 +338,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupCounters();
   setYear();
-  setupAIWidget(); 
   
-  setupSmoothScroll(); // Must be initialized before cursor so cursor math doesn't fight it
+  setupSmoothScroll(); 
   setupCustomCursor();
   setupMagneticButtons();
   setupParticles();
