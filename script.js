@@ -21,7 +21,7 @@ const projects = [
     download: "https://pycjdocumentation.vercel.app/",
     downloadText: "Visit Documentation",
     tag: "Documentation"
-  }    
+  },
   {
     title: "PyCJ Artificial Intelligence",
     description: "The official AI assistant for PyCJ — a custom programming language with its own lexer, parser, and interpreter designed to make learning to code intuitive and straightforward.",
@@ -29,7 +29,7 @@ const projects = [
     download: "https://pycjai.vercel.app/",
     downloadText: "Visit AI",
     tag: "Artificial Intelligence"
-  },
+  }
 ];
 
 const skills = [
@@ -253,7 +253,7 @@ function setupToggles() {
   const musicBtn = document.getElementById('musicToggle');
   const audio = document.getElementById('bgMusic');
   if (musicBtn && audio) {
-    audio.volume = 0.03; // 3% volume
+    audio.volume = 0.03;
     musicBtn.addEventListener('click', () => {
       if (audio.paused) { audio.play(); musicBtn.classList.add('active-music'); }
       else { audio.pause(); musicBtn.classList.remove('active-music'); }
