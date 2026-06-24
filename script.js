@@ -291,20 +291,33 @@ function setupCounters() {
    8) PREMIUM EFFECTS (Cursor, Smooth Scroll, Particles)
    ----------------------------------------------------- */
 let lenis; 
+const CURSOR_SIZE = 14;
+const CURSOR_HALF = CURSOR_SIZE / 2;
 
 function setupCustomCursor() {
   const dot = document.getElementById('cursorDot');
   if (!dot || window.innerWidth < 768) return;
   let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0;
   window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
-  function animateDot() { dotX += (mouseX - dotX) * 0.55; dotY += (mouseY - dotY) * 0.55; dot.style.transform = `translate(${dotX - 6}px, ${dotY - 6}px)`; requestAnimationFrame(animateDot); }
+  function animateDot() {
+    dotX += (mouseX - dotX) * 0.55;
+    dotY += (mouseY - dotY) * 0.55;
+    dot.style.transform = `translate(${dotX - CURSOR_HALF}px, ${dotY - CURSOR_HALF}px)`;
+    requestAnimationFrame(animateDot);
+  }
   animateDot();
-  document.querySelectorAll('a, button, .magnetic').forEach(el => { el.addEventListener('mouseenter', () => dot.classList.add('expand')); el.addEventListener('mouseleave', () => dot.classList.remove('expand')); });
+  document.querySelectorAll('a, button, .magnetic').forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('expand'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('expand'));
+  });
 }
 
 function setupMagneticButtons() {
   document.querySelectorAll('.magnetic').forEach(magnet => {
-    magnet.addEventListener('mousemove', (e) => { const rect = magnet.getBoundingClientRect(); magnet.style.transform = `translate(${(e.clientX - rect.left - rect.width / 2) * 0.3}px, ${(e.clientY - rect.top - rect.height / 2) * 0.3}px)`; });
+    magnet.addEventListener('mousemove', (e) => {
+      const rect = magnet.getBoundingClientRect();
+      magnet.style.transform = `translate(${(e.clientX - rect.left - rect.width / 2) * 0.3}px, ${(e.clientY - rect.top - rect.height / 2) * 0.3}px)`;
+    });
     magnet.addEventListener('mouseleave', () => magnet.style.transform = 'translate(0, 0)');
   });
 }
