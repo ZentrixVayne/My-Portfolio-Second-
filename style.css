@@ -77,9 +77,31 @@ img { max-width: 100%; display: block; } a { text-decoration: none; color: inher
 
 /* ---------- CUSTOM CURSOR ---------- */
 * { cursor: none !important; }
-.cursor-dot { width: 12px; height: 12px; background: var(--primary); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; mix-blend-mode: difference; transition: width 0.3s ease, height 0.3s ease; }
-.cursor-dot.expand { width: 40px; height: 40px; background: var(--primary); }
-@media (max-width: 768px) { * { cursor: auto !important; } .cursor-dot { display: none; } }
+.cursor-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--primary);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.6), 0 0 4px rgba(255, 255, 255, 0.3);
+}
+.cursor-dot.expand {
+  width: 44px;
+  height: 44px;
+  background: rgba(37, 99, 235, 0.4);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+@media (max-width: 768px) {
+  * { cursor: auto !important; }
+  .cursor-dot { display: none !important; }
+}
 
 /* ---------- NAVBAR ---------- */
 .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--glass-bg); backdrop-filter: blur(18px); border-bottom: 1px solid var(--glass-border); transition: var(--transition); }
