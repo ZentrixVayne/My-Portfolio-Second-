@@ -22,6 +22,14 @@ const projects = [
     downloadText: "Visit Documentation",
     tag: "Documentation"
   }    
+  {
+    title: "PyCJ Artificial Intelligence",
+    description: "The official AI assistant for PyCJ — a custom programming language with its own lexer, parser, and interpreter designed to make learning to code intuitive and straightforward.",
+    github: "https://github.com/ZentrixVayne/aura-ai",
+    download: "https://pycjai.vercel.app/",
+    downloadText: "Visit AI",
+    tag: "Artificial Intelligence"
+  },
 ];
 
 const skills = [
